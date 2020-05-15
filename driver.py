@@ -7,6 +7,7 @@ sys.path.insert(0,r'D:\Users\fdebernardis\Projects\CAD_app')
 import cad
 from c_Apparatus import *
 import random
+from mapping_utils import *
 
 #python -m cProfile -o driver_SantaMonica.prof driver_SantaMonica.py
 #snakeviz driver_SantaMonica.prof
@@ -35,8 +36,6 @@ def bb(dataframe,disp,cleared,unitname,iid):
     arr = cad.b2b(dm,dc,unitname,disp+'_seconds',cleared+'_seconds',iid,'bb_time')
     bbdf = pd.DataFrame(arr,columns=dsecs.columns)
     return bbdf
-
-
 
 def locations_details(locf,odmf):
     #read locations and OD cost matrix file
@@ -177,6 +176,9 @@ def new_calls(calls,di,inci_count,this_time,use_fd):
                 enroute_aver = loc[loc.locations==this_inc.location].rate_enroute.item()
                 enroute_stdev = loc[loc.locations == this_inc.location].stdev_enroute.item()
                 this_inc, u_engaged = assign_units(du, this_inc, time,u_engaged,use_fd,enroute_aver,enroute_stdev)
+                if rendering:
+                    long_c, lat_c = map(scatterer, gislocation_to_coord(this_inc.location))
+                    map_incidents(long_c, lat_c,'black')
                 di.update({inci_no: this_inc})
                 if this_inc.status == 0: pending_inc.append(inci_no)
                 newincs += 1
@@ -292,7 +294,9 @@ ufile = r'InputFiles_NOStat7\Units_Details_SM.csv'
 # ufile = r'InputFiles_Stat7_E8inS2_E9inS3\Units_Details_SM.csv'
 
 s1 = '1/1/2018 01:00:00'
-s2 = '3/1/2018 01:00:00'
+s2 = '1/7/2018 01:00:00'
+verbose_level = 'low'
+rendering = False
 EMS_hierarchy = True
 
 use_fd = False
@@ -357,34 +361,6 @@ resp_mod = {x:[model.columns[1::].tolist(),[int(model[model.Incident_Type==x][y]
 # count type of calls
 call_type = dict({int(x):cols_rates[x] for x in range(len(cols_rates))})
 
-
-###### -----------------------------------------------------
-####################################
-# for testing only
-# calls = [([1, 0,0,0]), ([0, 0,0, 0])]
-# inci_count = 0
-# t_index = 0
-# loc_index = 2
-# inci_count+=1
-# inci_no = 'I'+str(inci_count)
-# this_inc = Incident(inci_no,cols_rates[t_index],resp_mod[cols_rates[t_index]][0],resp_mod[cols_rates[t_index]][1],0,all_locations[loc_index])
-#------ assign units ------#
-# now = time
-# locs = all_locations[loc_index]
-# type_needed = this_inc.units_types[this_inc.number_needed > 0]
-# s = type_needed[0]
-# this_inc.number_needed[this_inc.units_types==s].sum() >0
-# ll = [t for t in du.keys() if du[t].type==s and du[t].status=='available']
-# alldist = [cm[(cm.start == du[uu].location) * (cm.end == locs)].cost.item() for uu in ll]
-# du[ll[np.argsort(alldist)[0]]].status_update('dispatched')
-# du[ll[np.argsort(alldist)[0]]].next_update(now + cm.cost[np.argsort(alldist)[0]])
-# this_inc.reduce(s)
-# du[ll[np.argsort(alldist)[0]]].next_loc(locs)
-# du[ll[np.argsort(alldist)[0]]].next_inc(this_inc.incino)
-# du[ll[np.argsort(alldist)[0]]].track()
-#######
-######-----------------------END TESTING-----------
-
 pending_inc = []
 di={}
 time = start
@@ -406,10 +382,10 @@ drmat,drdc = cad.to_mat(daily_rates)
 while time < end:
     # print(time,end)
     # print(pd.to_datetime(time*1e9),len(di))
-    if general_counter == int((end-start)/time_resol*0.1): print('The time is: ',pd.to_datetime(time*1e9),'10% time interval completed. ',len(di),' Incidents reported.')
-    if general_counter == int((end-start)/time_resol*0.3): print('The time is: ',pd.to_datetime(time*1e9),'30% time interval completed. ',len(di),' Incidents reported.')
-    if general_counter == int((end-start)/time_resol*0.6): print('The time is: ',pd.to_datetime(time*1e9),'60% time interval completed. ',len(di),' Incidents reported.')
-    if general_counter == int((end-start)/time_resol*0.9): print('The time is: ',pd.to_datetime(time*1e9),'90% time interval completed. ',len(di),' Incidents reported.')
+    if general_counter == int((end-start)/time_resol*0.1): print( ' 10% time interval completed. ',len(di),' Incidents reported.')
+    if general_counter == int((end-start)/time_resol*0.3): print( ' 30% time interval completed. ',len(di),' Incidents reported.')
+    if general_counter == int((end-start)/time_resol*0.6): print( ' 60% time interval completed. ',len(di),' Incidents reported.')
+    if general_counter == int((end-start)/time_resol*0.9): print( ' 90% time interval completed. ',len(di),' Incidents reported.')
     ### First, attempt to assign pending incidents
     # start = timeit.default_timer()
     #determine hour of day and rates
@@ -420,20 +396,6 @@ while time < end:
     if u_engaged: all_units_engaged = all_units_engaged + u_engaged
     ### Then deal with new calls arriving -  multiply by 24 hours then take the fraction in the hour
     calls = [incidents(( drmat[np.where(drmat[:,drdc['hour']]==hour),drdc[x]].item()* locmat[:,locdc[x]]*24. / drmat[:,drdc[x]].sum())* time_resol) for x in cols_rates]
-    #calls = [incidents((daily_rates[daily_rates.hour == hour][x].item() * loc[x]*24. / daily_rates[x].sum()).fillna(0.) * time_resol) for x in cols_rates]
-    #testing
-    # calls[0]=calls[0]*0
-    # calls[1] = calls[1] * 0
-    # calls[2] = calls[2] * 0
-    # calls[3] = calls[3] * 0
-    # calls[0][169] = 1
-    ## end testing
-    #calls = [incidents(loc[x] *daily_rates[daily_rates.hour==hour][x].item()/daily_rates[x].sum()* time_resol) for x in cols_rates]
-    #calls = [incidents(loc[x]*time_resol) for x in cols_rates]
-    # if time == start : calls = [([0, 1, 0]), ([0, 0, 0])]
-    # if time == start+1 : calls = [([0, 0, 0]), ([0, 0, 0])]
-    # print('----func1')
-    # start = timeit.default_timer()
     pending_inc,u_engaged,di,inci_count  = new_calls(calls,di,inci_count,time,use_fd)
     # if len(di)>=1: stop
     # print(len(di),timeit.default_timer()-start)
@@ -495,20 +457,31 @@ while time < end:
     # print(len(all_units_engaged), timeit.default_timer() - startl)
     time = time + time_resol
     general_counter +=1
-            # HERE DO STUFF
-print('\n globaltime ', timeit.default_timer() - start0,'\n')
+    if verbose_level == 'high':
+        sys.stdout.write("\rTime: %s" % str(pd.to_datetime(time*1e9)))
+        sys.stdout.flush()
 
-mycad = cad_formatter(du)
+print('\n Computing time (seconds) ', timeit.default_timer() - start0,'\n')
+print('\n Total Incidents: ',len(di))
+basecad = cad_formatter(du)
 
-mycad = mycad.sort_values(['dispatched','Incident_ID'])
+basecad = basecad.sort_values(['dispatched','Incident_ID'])
+mycad  = cad_add_coords(basecad)
+
 # first arriving onlyt
 # stop
 mycadf = mycad.sort_values('arrived')
 mycadf= mycadf.drop_duplicates('Incident_ID',keep='first')
 t = mycadf[mycadf.Inc_type=='EMS'].travel.dropna().values
+
+if not rendering:
+    for x in mycadf.index:
+        map_incidents(mycadf.loc[x]['Longitude_Inc'],mycadf.loc[x]['Latitude_Inc'],'black')
+    plt.ioff()
 print('EMS 90th Percentile')
 print(np.percentile(t,90))
 mycad.to_csv('temp.csv')
+if rendering : plt.ioff()
 stop
 ####
 mycad = arrive_order(mycad,'arrived','Incident_ID')

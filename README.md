@@ -2,7 +2,7 @@
  
 This Python tool simulates the operations of a fire department in any city, real or not, by dispatching fire engines, ambulances, and other apparatus to the scene of incidents.
 
-The output of the software is a table with the list of incidents occurred in the simulated time period. The structure of this table resembles real [Computer Aided Dispatch data](https://en.wikipedia.org/wiki/Computer-aided_dispatch). This table will contain information icluding the location of the incidents, how many units (e.g. fire engines and ambulances) responded to that incidents, the time when they were dispatched, the time it took for them to reach the scene, and more. For example:
+The output of the software is a table with the list of incidents occurred in the simulated time period. The structure of this table resembles real [Computer Aided Dispatch data](https://en.wikipedia.org/wiki/Computer-aided_dispatch). This table will contain information icluding the location of the incidents, the incident type (emergency medical services, fire, etc.), the units (e.g. fire engines and ambulances) which responded to that incidents, the time when they were dispatched, the time when they reached the scene, and more. Here is an example of output from the simulation:
 
 ![CAD_results.JPG](https://github.com/fdeberna/FD_simulator/blob/master/img/CAD_results.JPG)
 

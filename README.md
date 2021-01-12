@@ -16,7 +16,7 @@ Several settings can be decided by the users, including the deploying model, tha
 
 ![settings.JPG](https://github.com/fdeberna/FD_simulator/blob/master/img/settings.JPG)
 
-If you choose to display a map, you can follow the simulation while it runs and the simulated incidents occurring in the city (here, Washington DC as an example):
+If you choose to display a map, you can follow the simulation while it runs and the simulated incidents while they occur in the city. Here is an example for Washington DC. Each dot is an emergency incident.
 
 ![DC_Incidents.gif](https://github.com/fdeberna/FD_simulator/blob/master/img/DC_Incidents.gif)
 

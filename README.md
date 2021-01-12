@@ -12,7 +12,9 @@ Fire departments could use this tool for planning and forecasting how any change
 
 # Quick Preview
 
-Coming soon.
+Several settings can be decide by the users, including the deploying model, for example, how many fire engines are dispatched to a fire incidents. A Graphical User Interface will be provided in future version. At this stage, the user can modify the variables in the driver.py file. For example, to modify start and end date of the simulation, the level of feedback the sofware provides while running ("verbose level"), and deciding if displaying an interactive map while the simulation runs, the user would change the following variables:
+
+![settings.JPG](https://github.com/fdeberna/FD_simulator/blob/master/img/settings.JPG)
 
 # Technical Details
 

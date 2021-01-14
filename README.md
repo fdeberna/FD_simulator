@@ -47,7 +47,7 @@ The quantities needed to model the city are:
 ![resp.JPG](https://github.com/fdeberna/FD_simulator/blob/master/img/resp.JPG)
 
 
-Once the user creates these files, they can be passed to the software simply by editing these lines in the driver.py:
+Once the user creates these files, they can be passed to the software simply by editing these lines in the **driver.py**:
 
 ![inputs.JPG](https://github.com/fdeberna/FD_simulator/blob/master/img/inputs.JPG)
 
@@ -57,7 +57,7 @@ Several settings can be decided by the users, including the deploying model, tha
 
 # How it works
 
-The file c_Apparatus.py defines several classes.
+The file **c_Apparatus.py** defines several classes.
 Apparatus of the department (that is, engines, ladders, ambulances, etc.) belong to the class "Apparatus".  Incidents and fire stations are also a class.
 
 ![class_Apparatus.JPG](https://github.com/fdeberna/FD_simulator/blob/master/img/class_Apparatus.JPG)

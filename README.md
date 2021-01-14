@@ -42,8 +42,14 @@ The quantities needed to model the city are:
 
 ![station_file.JPG](https://github.com/fdeberna/FD_simulator/blob/master/img/station_file.JPG)
 
+* Response model: a table that describes the way the department responds to each type of incident. How many engines and ladders are dispatched to a fire incident? How many ambulances for a medical emergency?
+
+![resp.JPG](https://github.com/fdeberna/FD_simulator/blob/master/img/resp.JPG)
+
+
 # Technical Details
 
 Several settings can be decided by the users, including the deploying model, that is, for example, the number of fire engines dispatched to fire incidents. A Graphical User Interface will be provided in a future version. At this stage, the user can modify variables directly in the driver.py file. For example, the start and end date of the simulation, the level of feedback the software provides while running ("verbose level"), deciding if displaying an interactive map while the simulation runs, and many other settings.
 
 ![settings.JPG](https://github.com/fdeberna/FD_simulator/blob/master/img/settings.JPG)
+

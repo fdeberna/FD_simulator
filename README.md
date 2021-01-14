@@ -60,6 +60,8 @@ Several settings can be decided by the users, including the deploying model, tha
 The file c_Apparatus.py defines several classes.
 Apparatus of the department (that is, engines, ladders, ambulances, etc.) belong to the class "Apparatus".  Incidents and fire stations are also a class.
 
+ <img src="https://github.com/fdeberna/FD_simulator/blob/master/img/class_Apparatus.JPG" width="100" height="100">
+
 ![class_Apparatus.JPG](https://github.com/fdeberna/FD_simulator/blob/master/img/class_Apparatus.JPG | width=50)
 ![class_Incidents.JPG](https://github.com/fdeberna/FD_simulator/blob/master/img/class_Incidents.JPG | width =50)
 ![class_Station.JPG](https://github.com/fdeberna/FD_simulator/blob/master/img/class_Station.JPG | wodth =50)

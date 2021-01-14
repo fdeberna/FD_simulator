@@ -1,6 +1,10 @@
 # Fire Department Simulator
  
-This Python tool simulates the operations of a fire department in any city, real or not, by dispatching fire engines, ambulances, and other apparatus to the scene of incidents. Fire departments can use this tool to forecast how any change in the number of fire stations, fire engines, ambulances, etc. would affect their operations. Incidents occurring simultaneously in different parts of the city decrease the efficiency of a fire department and its ability to maintain coverage of the city in ways that are hard to predict. This software enables the advanced analysis needed to forecast response times performance, the number of units busy responding at the same time at any given hour of the day, and many other metrics. If you choose to display a map, you can follow the simulation while it runs and the simulated incidents while they occur in the city. Here is an example for Washington DC. Each dot is an emergency incident.
+This Python tool simulates the operations of a fire department in any city, real or not, by dispatching fire engines, ambulances, and other apparatus to the scene of incidents. 
+
+Fire departments can use this tool to forecast how any change in the number of fire stations, fire engines, ambulances, etc. would affect their operations. 
+
+Incidents occurring simultaneously in different parts of the city decrease the efficiency of a fire department and its ability to maintain coverage of the city in ways that are hard to predict. This software enables the advanced analysis needed to forecast response times performance, the number of units busy responding at the same time at any given hour of the day, and many other metrics. If you choose to display a map, you can follow the simulation while it runs and the simulated incidents while they occur in the city. Here is an example for Washington DC. Each dot is an emergency incident.
 
 ![DC_Incidents.gif](https://github.com/fdeberna/FD_simulator/blob/master/img/DC_Incidents.gif)
 

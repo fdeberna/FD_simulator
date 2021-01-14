@@ -1,6 +1,6 @@
 # Fire Department Simulator
  
-This Python tool simulates the operations of a fire department in any city, real or not, by dispatching fire engines, ambulances, and other apparatus to the scene of incidents. 
+This Python tool simulates the operations of a fire department in any city by dispatching fire engines, ambulances, and other apparatus to the scene of incidents. 
 
 Fire departments can use this tool to forecast how any change in the number of fire stations, fire engines, ambulances, etc. would affect their operations. 
 

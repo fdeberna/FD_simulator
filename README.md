@@ -12,11 +12,38 @@ The output of the software is a table with the list of incidents that occurred i
 
 ![CAD_results.JPG](https://github.com/fdeberna/FD_simulator/blob/master/img/CAD_results.JPG)
 
+# How To Use
+
+The user provides several data tables that describe the city to model. There are many ways to produce the tables and template tables are provided in the repository to run the code. It does not matter which geographical software is used to produce these tables as long as they follow the template. As explained below, several tables are simple enough to be created by hand.
+
+The geographical area of interest is represented by a grid. For example:
+
+![GridDC.JPG](https://github.com/fdeberna/FD_simulator/blob/master/img/GridDC.JPG)
+
+The quantities needed to model the city are:
+
+* A cost matrix: determines the travel time from one cell of the grid to any other cell. This is as simple as the following table where "start" and "end" are indices of the cells and "cost" is the travel time in seconds.
+
+![cost_matrix.JPG](https://github.com/fdeberna/FD_simulator/blob/master/img/cost_matrix.JPG)
+
+* Frequency of incidents: a table that specifies, for each cell, the expected number of incidents per second. There is no hard requirement for the type of incidents. Users could report the expected frequency for EMS incidents only, or Fire incidents only. 
+
+![locations_rates.JPG](https://github.com/fdeberna/FD_simulator/blob/master/img/locations_rates.JPG)
+
+* Daily rates: a table specifying the number of incidents per second expected in each hour of the day and the standard deviation to mean ratio for the number of incidents. This file is used to normalize the number of incidents in each hour, in order to model hour-to-hour variations. 
+
+![daily_rates.JPG](https://github.com/fdeberna/FD_simulator/blob/master/img/daily_rates.JPG)
+
+* Units file: this table specifies the units available to the department, their type (engines, ladders, transport), their EMS type, for example, Advanced Life Support (ALS) or Basic Life Support (BLS), the initial cell whee the unit is located at the beginning of the simulation, and the average time the unit spend on each type of incidents. This is the table to edit to study the effect of adding or removing units.
+
+![units_file.JPG](https://github.com/fdeberna/FD_simulator/blob/master/img/units_file.JPG)
+
+* Station file: a simple table, specifying the name of the fire station and the cell where they are located. Modify this table to add or remove stations.
+
+![station_file.JPG](https://github.com/fdeberna/FD_simulator/blob/master/img/station_file.JPG)
 
 # Technical Details
 
 Several settings can be decided by the users, including the deploying model, that is, for example, the number of fire engines dispatched to fire incidents. A Graphical User Interface will be provided in a future version. At this stage, the user can modify variables directly in the driver.py file. For example, the start and end date of the simulation, the level of feedback the software provides while running ("verbose level"), deciding if displaying an interactive map while the simulation runs, and many other settings.
 
 ![settings.JPG](https://github.com/fdeberna/FD_simulator/blob/master/img/settings.JPG)
-
-TBC...

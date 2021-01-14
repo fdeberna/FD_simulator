@@ -68,11 +68,11 @@ Apparatus of the department (that is, engines, ladders, ambulances, etc.) belong
 
 The class **Apparatus** has the following methods:
 
-* status_update(self,newstat): update the status of the unit, for example from "available" to "dispatched"
-* next_update(self,cost): sets the time when the next status update is expected to occur.
-* next_loc(self,new_loc): sets the location of the unit at the next status update. For example a unit dispatched from one cell, will be updated as "on the scene of incident" at a different cell. 
-* next_inc(self,new_inc): the incident ID number to which the unit is assigned.
-track(self): appends the history of the unit to a list. Includes the incidents the unit responded to, what time it started to travel towards the scene of the incident, the time when it reached the scene, etc.
+ * **status_update(self,newstat)**: update the status of the unit, for example from "available" to "dispatched"
+ * **next_update(self,cost)**: sets the time when the next status update is expected to occur.
+ * **next_loc(self,new_loc)**: sets the location of the unit at the next status update. For example a unit dispatched from one cell, will be updated as "on the scene of incident" at a different cell. 
+ * **next_inc(self,new_inc)**: the incident ID number to which the unit is assigned.
+ * **track(self)**: appends the history of the unit to a list. Includes the incidents the unit responded to, what time it started to travel towards the scene of the incident, the time when it reached the scene, etc.
 
 TBC
 

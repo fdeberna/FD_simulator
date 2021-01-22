@@ -61,7 +61,7 @@ Once the user creates these files, they can be passed to the software simply by 
 
 ![inputs.JPG](https://github.com/fdeberna/FD_simulator/blob/master/img/inputs.JPG)
 
-Several settings can be decided by the users, including the deploying model, that is, for example, the number of fire engines dispatched to fire incidents. A Graphical User Interface will be provided in a future version. At this stage, the user can modify variables directly in the driver.py file. For example, the start and end date of the simulation, the level of feedback the software provides while running ("verbose level"), deciding if displaying an interactive map while the simulation runs, and many other settings.
+Several settings can be decided by the users. A Graphical User Interface will be provided in a future version. At this stage, the user can modify variables directly in the driver.py file. For example, the start and end date of the simulation, the level of feedback the software provides while running ("verbose level"), deciding if displaying an interactive map while the simulation runs, and many other settings.
 
 ![settings.JPG](https://github.com/fdeberna/FD_simulator/blob/master/img/settings.JPG)
 

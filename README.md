@@ -18,10 +18,9 @@ Units from each station travel towards different parts of the city. Users could 
 
 <img src="https://github.com/fdeberna/FD_simulator/blob/master/img/fluxes.JPG" width="750">
 
-
 Adding or removing stations and units will affect response times. It is easy to observe this effect with the simulated data produced by FD_simulator.
 
-![Simulation_TT.JPG](https://github.com/fdeberna/FD_simulator/blob/master/img/Simulation_TT.png)
+<img src="https://github.com/fdeberna/FD_simulator/blob/master/img/Simulation_TT.png" width="750">
 
 # How To Use
 

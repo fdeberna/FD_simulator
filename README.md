@@ -90,9 +90,7 @@ The **Incident** class attributes include the unique incident identifier, the ty
 
 This class has the following methods:
 * **assign_unit**: assigns a unit to the incident. The units assigned to the incident are appended to a list.
-
-* **redyce**: reduces the count of units of a particular type needed to address the incident. This software calls this method after assigning one unit to the incident.
-
+* **reduce**: reduces the count of units of a particular type needed to address the incident. This software calls this method after assigning one unit to the incident.
 * **increase**: opposite of **reduce**. Increases the number of units needed to address the incident. It might be used to model incidents that escalate to a higher emergency level, or if the unit previously assigned is no longer available for any reason.
 
 

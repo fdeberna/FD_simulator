@@ -4,13 +4,23 @@ This Python tool simulates the operations of a fire department in any city by di
 
 Fire departments can use this tool to forecast how any change in the number of fire stations, fire engines, ambulances, etc. would affect their operations. 
 
-Incidents occurring simultaneously in different parts of the city decrease the efficiency of a fire department and its ability to maintain coverage of the city in ways that are hard to predict. This software enables the advanced analysis needed to forecast response times performance, the number of units busy responding at the same time at any given hour of the day, and many other metrics. If you choose to display a map, you can follow the simulation while it runs and the simulated incidents while they occur in the city. Here is an example for Washington DC. Each dot is an emergency incident.
+## Overview
+
+This software enables the advanced analysis needed to forecast response times performance, the number of units busy responding at the same time at any given hour of the day, and many other metrics. If you choose to display a map, you can follow the simulation while it runs and the simulated incidents while they occur in the city. Here is an example for Washington DC. Each dot is an emergency incident.
 
 ![DC_Incidents.gif](https://github.com/fdeberna/FD_simulator/blob/master/img/DC_Incidents.gif)
 
 The output of the software is a table with the list of incidents that occurred in the simulated time period. The structure of this table resembles real [Computer Aided Dispatch data](https://en.wikipedia.org/wiki/Computer-aided_dispatch). This table will contain information including the location of the incidents, the incident type (emergency medical services, fire, etc.), the units (e.g. fire engines and ambulances) which responded to that incidents, the time when they were dispatched, the time when they reached the scene, and more. Here is an example of output from the simulation:
 
 ![CAD_results.JPG](https://github.com/fdeberna/FD_simulator/blob/master/img/CAD_results.JPG)
+
+Units from each station travel towards different parts of the city. Users could examine how opening new stations changes the flux of emergency vehicles.
+
+![fluxes.JPG](https://github.com/fdeberna/FD_simulator/blob/master/img/fluxes.JPG)
+
+Adding or removing stations and units will affect response times. It is easy to observe this effect with the simulated data produced by FD_simulator.
+
+![Simulation_TT.JPG](https://github.com/fdeberna/FD_simulator/blob/master/img/Simulation_TT.png)
 
 # How To Use
 

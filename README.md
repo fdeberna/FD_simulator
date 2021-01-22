@@ -12,7 +12,7 @@ This software enables the advanced analysis needed to forecast response times pe
 
 The output of the software is a table with the list of incidents that occurred in the simulated time period. The structure of this table resembles real [Computer Aided Dispatch data](https://en.wikipedia.org/wiki/Computer-aided_dispatch). This table will contain information including the location of the incidents, the incident type (emergency medical services, fire, etc.), the units (e.g. fire engines and ambulances) which responded to that incidents, the time when they were dispatched, the time when they reached the scene, and more. Here is an example of output from the simulation:
 
-<img src="https://github.com/fdeberna/FD_simulator/blob/master/img/CAD_results.JPG" width="750">
+<img src="https://github.com/fdeberna/FD_simulator/blob/master/img/CAD_results.JPG" width="1000">
 
 Units from each station travel towards different parts of the city. Users could examine how opening new stations changes the flux of emergency vehicles. For example, this figure shows that opening a new station allows units from Station 1 and Station 2 to stay more often within their station response areas (FD1 and FD2).
 

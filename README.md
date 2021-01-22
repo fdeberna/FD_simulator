@@ -16,7 +16,8 @@ The output of the software is a table with the list of incidents that occurred i
 
 Units from each station travel towards different parts of the city. Users could examine how opening new stations changes the flux of emergency vehicles.
 
-![fluxes.JPG](https://github.com/fdeberna/FD_simulator/blob/master/img/fluxes.JPG=250 x 250)
+<img src="https://github.com/fdeberna/FD_simulator/blob/master/img/fluxes.JPG" width="48">
+
 
 Adding or removing stations and units will affect response times. It is easy to observe this effect with the simulated data produced by FD_simulator.
 

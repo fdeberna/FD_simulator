@@ -76,13 +76,25 @@ Apparatus of the department (that is, engines, ladders, ambulances, etc.) belong
 
 ![class_Station.JPG](https://github.com/fdeberna/FD_simulator/blob/master/img/class_Station.JPG )
 
-The class **Apparatus** has the following methods:
+The class **Apparatus** has several attributes which describe the status of the unit ("available","dispatched", "at the scene", etc.), its type ("engine", "ambulance", etc.), the station it belongs to, and other properties derived from the input tables.
+
+This class has the following methods:
 
  * **status_update**: update the status of the unit, for example from "available" to "dispatched"
  * **next_update**: sets the time when the next status update is expected to occur.
  * **next_loc**: sets the location of the unit at the next status update. For example a unit dispatched from one cell, will be updated as "on the scene of incident" at a different cell. 
  * **next_inc**: the incident ID number to which the unit is assigned.
  * **track**: appends the history of the unit to a list. Includes the incidents the unit responded to, what time it started to travel towards the scene of the incident, the time when it reached the scene, etc.
+
+The **Incident** class attributes include the unique incident identifier, the type of incident (for example, medical emergency or fire), the type of units required to respond, the number of units required for each type, and the location of the incident.
+
+This class has the following methods:
+* **assign_unit**: assigns a unit to the incident. The units assigned to the incident are appended to a list.
+
+* **redyce**: reduces the count of units of a particular type needed to address the incident. This software calls this method after assigning one unit to the incident.
+
+* **increase**: opposite of **reduce**. Increases the number of units needed to address the incident. It might be used to model incidents that escalate to a higher emergency level, or if the unit previously assigned is no longer available for any reason.
+
 
 TBC
 

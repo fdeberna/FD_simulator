@@ -47,7 +47,7 @@ The quantities needed to model the city are:
 ![resp.JPG](https://github.com/fdeberna/FD_simulator/blob/master/img/resp.JPG)
 
 
-Once the user creates these files, they can be passed to the software simply by editing these lines in the driver.py:
+Once the user creates these files, they can be passed to the software simply by editing these lines in the **driver.py**:
 
 ![inputs.JPG](https://github.com/fdeberna/FD_simulator/blob/master/img/inputs.JPG)
 
@@ -56,6 +56,23 @@ Several settings can be decided by the users, including the deploying model, tha
 ![settings.JPG](https://github.com/fdeberna/FD_simulator/blob/master/img/settings.JPG)
 
 # How it works
+
+The file **c_Apparatus.py** defines several classes.
+Apparatus of the department (that is, engines, ladders, ambulances, etc.) belong to the class "Apparatus".  Incidents and fire stations are also a class.
+
+![class_Apparatus.JPG](https://github.com/fdeberna/FD_simulator/blob/master/img/class_Apparatus.JPG)
+
+![class_Incidents.JPG](https://github.com/fdeberna/FD_simulator/blob/master/img/class_Incidents.JPG)
+
+![class_Station.JPG](https://github.com/fdeberna/FD_simulator/blob/master/img/class_Station.JPG )
+
+The class **Apparatus** has the following methods:
+
+ * **status_update**: update the status of the unit, for example from "available" to "dispatched"
+ * **next_update**: sets the time when the next status update is expected to occur.
+ * **next_loc**: sets the location of the unit at the next status update. For example a unit dispatched from one cell, will be updated as "on the scene of incident" at a different cell. 
+ * **next_inc**: the incident ID number to which the unit is assigned.
+ * **track**: appends the history of the unit to a list. Includes the incidents the unit responded to, what time it started to travel towards the scene of the incident, the time when it reached the scene, etc.
 
 TBC
 

@@ -24,7 +24,7 @@ Adding or removing stations and units will affect response times. It is easy to 
 
 # How To Use
 
-The user provides several data tables that describe the city to model. There are many ways to produce the tables and template tables are provided in the repository to run the code. It does not matter which geographical software is used to produce these tables as long as they follow the template. As explained below, several tables are simple enough to be created by hand.
+The user provides several data tables that describe the city to model. There are many ways to produce the tables and template tables are provided in the repository to run the code. It does not matter which geographical software is used to produce these tables as long as they follow the template. 
 
 The geographical area of interest is represented by a grid. For example:
 

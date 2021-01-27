@@ -1,5 +1,10 @@
+# Table of Contents
+
 - [Fire Department Simulator](#fire-department-simulator)
   * [Overview](#overview)
+- [How To Use](#how-to-use)
+- [How it works](#how-it-works)
+ 
   
 # Fire Department Simulator
  

@@ -67,7 +67,12 @@ Several settings can be decided by the users. A Graphical User Interface will be
 
 # How it works
 
-The file **c_Apparatus.py** defines several classes.
+It its essence, the code is a random Poisson generator of fire, EMS, HazMat, or any other type of incident. The location of the incidents is randomized according to the input incidents density. The frequency of the incidents also follows the incident rates that the user provides in the input tables. The frequency of the incidents is typically higher during the daytime and lower at night. The day and night modulation can be modified in the daily rates file described above.
+
+The file that does the work is **driver.py**.  There are functions in the file to find the closest units and assign them to the incident. The code uses Poisson probabilities for the incidents arrival rate and the service rate, that is, the probability of a unit clearing the incident. The Poisson distribution is informed by the input tables. 
+
+The file **c_Apparatus.py** defines several classes. The file defines several classes with several methods and attributes. Methods and attributes keep track of the status of the units and the incidents occurring in the city.
+
 Apparatus of the department (that is, engines, ladders, ambulances, etc.) belong to the class "Apparatus".  Incidents and fire stations are also a class.
 
 ![class_Apparatus.JPG](https://github.com/fdeberna/FD_simulator/blob/master/img/class_Apparatus.JPG)
@@ -94,5 +99,4 @@ This class has the following methods:
 * **increase**: opposite of **reduce**. Increases the number of units needed to address the incident. It might be used to model incidents that escalate to a higher emergency level, or if the unit previously assigned is no longer available for any reason.
 
 
-TBC
 

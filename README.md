@@ -1,3 +1,6 @@
+- [Fire Department Simulator](#fire-department-simulator)
+  * [Overview](#overview)
+  
 # Fire Department Simulator
  
 This Python software simulates the operations of a fire department in any city by dispatching fire engines, ambulances, and other apparatus to the scene of incidents. 

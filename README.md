@@ -32,30 +32,29 @@ The geographical area of interest is represented by a grid. For example:
 
 The quantities needed to model the city are:
 
-* A cost matrix: determines the travel time from one cell of the grid to any other cell. This is as simple as the following table where "start" and "end" are indices of the cells and "cost" is the travel time in seconds.
+* A **cost matrix**: determines the travel time from one cell of the grid to any other cell. This is as simple as the following table where "start" and "end" are indices of the cells and "cost" is the travel time in seconds.
 
 ![cost_matrix.JPG](https://github.com/fdeberna/FD_simulator/blob/master/img/cost_matrix.JPG)
 
-* Frequency of incidents: a table that specifies, for each cell, the expected number of incidents per second. There is no hard requirement for the type of incidents. Users could report the expected frequency for EMS incidents only, or Fire incidents only. 
+* **Frequency of incidents** (this is the file ending in \*location_rates.csv in the repository): a table that specifies, for each cell, the expected number of incidents per second. There is no hard requirement for the type of incidents. Users could report the expected frequency for EMS incidents only, or Fire incidents only. 
 
 ![locations_rates.JPG](https://github.com/fdeberna/FD_simulator/blob/master/img/locations_rates.JPG)
 
-* Daily rates: a table specifying the number of incidents per second expected in each hour of the day and the standard deviation to mean ratio for the number of incidents. This file is used to normalize the number of incidents in each hour, in order to model hour-to-hour variations. 
+* **Daily rates**: a table specifying the number of incidents per second expected in each hour of the day and the standard deviation to mean ratio for the number of incidents. This file is used to normalize the number of incidents in each hour, in order to model hour-to-hour variations. 
 
 ![daily_rates.JPG](https://github.com/fdeberna/FD_simulator/blob/master/img/daily_rates.JPG)
 
-* Units file: this table specifies the units available to the department, their type (engines, ladders, transport), their EMS type, for example, Advanced Life Support (ALS) or Basic Life Support (BLS), the initial cell whee the unit is located at the beginning of the simulation, and the average time the unit spend on each type of incidents. This is the table to edit to study the effect of adding or removing units.
+* **Units file**: this table specifies the units available to the department, their type (engines, ladders, transport), their EMS type, for example, Advanced Life Support (ALS) or Basic Life Support (BLS), the initial cell whee the unit is located at the beginning of the simulation, and the average time the unit spend on each type of incidents. This is the table to edit to study the effect of adding or removing units.
 
 ![units_file.JPG](https://github.com/fdeberna/FD_simulator/blob/master/img/units_file.JPG)
 
-* Station file: a simple table, specifying the name of the fire station and the cell where they are located. Modify this table to add or remove stations.
+* **Station file**: a simple table, specifying the name of the fire station and the cell where they are located. Modify this table to add or remove stations.
 
 ![station_file.JPG](https://github.com/fdeberna/FD_simulator/blob/master/img/station_file.JPG)
 
-* Response model: a table that describes the way the department responds to each type of incident. How many engines and ladders are dispatched to a fire incident? How many ambulances for a medical emergency?
+* **Response model**: a table that describes the way the department responds to each type of incident. How many engines and ladders are dispatched to a fire incident? How many ambulances for a medical emergency?
 
 ![resp.JPG](https://github.com/fdeberna/FD_simulator/blob/master/img/resp.JPG)
-
 
 Once the user creates these files, they can be passed to the software simply by editing these lines in the **driver.py**:
 
@@ -71,7 +70,7 @@ It its essence, the code is a random Poisson generator of fire, EMS, HazMat, or 
 
 The file that does the work is **driver.py**.  There are functions in the file to find the closest units and assign them to the incident. The code uses Poisson probabilities for the incidents arrival rate and the service rate, that is, the probability of a unit clearing the incident. The Poisson distribution is informed by the input tables. 
 
-The file **c_Apparatus.py** defines several classes. The file defines several classes with several methods and attributes. Methods and attributes keep track of the status of the units and the incidents occurring in the city.
+The file **c_Apparatus.py** defines various classes with several methods and attributes. Methods and attributes keep track of the status of the units and the incidents occurring in the city.
 
 Apparatus of the department (that is, engines, ladders, ambulances, etc.) belong to the class "Apparatus".  Incidents and fire stations are also a class.
 
